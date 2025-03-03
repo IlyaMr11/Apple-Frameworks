@@ -13,6 +13,10 @@ struct FrameworkGridView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible())
     ]
+    
+    @StateObject var viewModel = GridViewModel()
+    
+
     var body: some View {
         
         NavigationView {
@@ -20,10 +24,16 @@ struct FrameworkGridView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(MockData.frameworks) { framework in
                         FrameworkTitleView(framework: framework)
+                            .onTapGesture {
+                                viewModel.framework = framework
+                            }
                     }
                 }
             }
             .navigationTitle("🍎 Frameworks")
+            .sheet(isPresented: $viewModel.isShowDetail) {
+                FrameworkDetailView(framework: viewModel.framework ?? MockData.sampleFramework, isShowDetail: $viewModel.isShowDetail)
+            }
         }
         
             
