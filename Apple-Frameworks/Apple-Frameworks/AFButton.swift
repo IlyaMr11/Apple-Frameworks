@@ -11,16 +11,14 @@ struct AFButton: View {
     let title: String
     
     var body: some View {
-        Button() {
-            
-        } label: {
-            Text(title)
-                .font(.title)
-                .frame(width: 280, height: 50)
-                .foregroundColor(.white)
-                .background(Color.red)
-                .clipShape(.rect(cornerRadius: 15))
-        }
+       
+        Text(title)
+            .font(.title)
+            .frame(width: 280, height: 50)
+            .foregroundColor(.white)
+            .background(Color.red)
+            .clipShape(.rect(cornerRadius: 15))
+        
     }
 }
 

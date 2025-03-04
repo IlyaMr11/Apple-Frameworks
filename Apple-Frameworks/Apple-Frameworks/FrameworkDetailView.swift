@@ -11,6 +11,7 @@ struct FrameworkDetailView: View {
     
     var framework: Framework
     @Binding var isShowDetail: Bool
+    @State private var isShowSafari: Bool = false
     
     var body: some View {
         VStack {
@@ -38,9 +39,15 @@ struct FrameworkDetailView: View {
                 .padding()
             
             Spacer()
-            
-            AFButton(title: "Learn More")
-                .padding()
+            Button() {
+                isShowSafari = true
+            } label : {
+                AFButton(title: "Learn More")
+                    .padding()
+            }
+        }
+        .sheet(isPresented: $isShowSafari) {
+            SafariView(url: URL(string: framework.urlString) ?? URL(string: "https://www.google.com")!)
         }
     }
 }
