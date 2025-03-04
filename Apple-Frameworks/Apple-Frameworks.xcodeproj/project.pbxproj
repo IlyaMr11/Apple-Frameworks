@@ -32,8 +32,8 @@
 		4AE169532D760C4B00655420 = {
 			isa = PBXGroup;
 			children = (
-				4AE1695E2D760C4B00655420 /* Apple-Frameworks */,
 				4AE1695D2D760C4B00655420 /* Products */,
+				4AE1695E2D760C4B00655420 /* Apple-Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

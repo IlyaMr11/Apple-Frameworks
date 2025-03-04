@@ -42,9 +42,13 @@ struct FrameworkDetailView: View {
             Button() {
                 isShowSafari = true
             } label : {
-                AFButton(title: "Learn More")
-                    .padding()
+//                AFButton(title: "Learn More")
+                Label("Learn More", systemImage: "book.fill")
             }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .tint(.red)
+            .padding()
         }
         .sheet(isPresented: $isShowSafari) {
             SafariView(url: URL(string: framework.urlString) ?? URL(string: "https://www.google.com")!)
